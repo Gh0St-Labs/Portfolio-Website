@@ -1,7 +1,10 @@
 import streamlit as st
 import pandas as pd
 
-
+# If a folder named 'pages', just like this one, is created in a Project, and the python files inside which have
+# streamlit loaded inside them will appear on the Browser with the Mother File (which should be outside the
+# pages directory). It will appear as an Seperate page with the Mother file. This methodology can be used to add
+# contact pages in our website.
 # The syntax is mentioned below. Pandas can use list indexing / slicing, I don't know you name it.
 # The [10:4] one.
 
