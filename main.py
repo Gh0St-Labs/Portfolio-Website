@@ -1,12 +1,11 @@
 import streamlit as st
 import pandas as pd
-import pathlib
+
 
 # The syntax is mentioned below. Pandas can use list indexing / slicing, I don't know you name it.
 # The [10:4] one.
 
 st.set_page_config(layout='wide')
-
 
 
 col1, col2 = st.columns(2) # this column method returns 2 columns as given
@@ -27,7 +26,7 @@ with col2:
     st.info(content)
 
 st.write("<h1><center> 🚀 Below you can find some of the apps that I have built in Python 🚀 </center></h1>", unsafe_allow_html=True)
-st.write("<h2><center>  💬  Feel free to Contact Me  💬  </center></h2>", unsafe_allow_html=True)
+st.write("<h2><center>  👉  Feel free to Contact Me  👈  </center></h2>", unsafe_allow_html=True)
 st.write("<br>", unsafe_allow_html=True)
 st.write("<br>", unsafe_allow_html=True)
 st.write("<br>", unsafe_allow_html=True)
@@ -35,16 +34,28 @@ st.write("<br>", unsafe_allow_html=True)
 # Always finish writing the content first then add the unsafe allow html to True and the Tags. It's a small bug.
 # Leave space between the text and the HTML tags as without them, the HTML is useless.
 
-col3, col4 = st.columns(2)
+col3, empty_col, col4 = st.columns([1.5, 0.5, 1.5]) # this is the ratio dimensions of the columns so you can have
+# more space in between the columns
 
 data_frame  = pd.read_csv("data.csv", sep=';')
+
 with col3:
     for index, row in data_frame[0:10].iterrows():
-        st.header(row['title'])
-        st.write(row['description'])
+        st.write(f"<center><h1> {row['title']} </h1></center>", unsafe_allow_html=True)
+        st.image("images\\" + row['image'])
+        st.write(f"<center><h4> {row['description']} </h4></center", unsafe_allow_html=True)
+        st.write(f"<center><a href={row['url']}> Source Code </a></center>", unsafe_allow_html=True)
 
 with col4:
     for index, row in data_frame[10:].iterrows():
-        st.header(row['title'])
-        st.write(row['description'])
+        st.write(f"<center><h1> {row['title']} </h1></center>", unsafe_allow_html=True)
+        st.image("images\\" + row['image'])
+        st.write(f"<center><h4> {row['description']} </h4></center", unsafe_allow_html=True)
+        st.write(f"<center><a href={row['url']}> Source Code </a></center>", unsafe_allow_html=True)
+        # there is also another method to give in links using st.write >>
+        # st.write(f"[Source Code]({row['url]})")
+        # the first square brackets is the name of the link, and the second curly brackets are for the link.
+        # we are getting the link from row['url'] from the data.csv
+
+
 
