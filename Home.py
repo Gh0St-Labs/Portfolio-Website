@@ -60,7 +60,7 @@ with col4:
         st.write(f"<center><h1> {row['title']} </h1></center>", unsafe_allow_html=True)
         st.image("images\\" + row['image'])
         st.write(f"<center><h4> {row['description']} </h4></center", unsafe_allow_html=True)
-        st.write(f"<center><a href={row['url']}> Source Code </a></center>", unsafe_allow_html=True)
+        st.write(f'<center><a href={row["url"]}> Source Code </a></center>', unsafe_allow_html=True)
         # there is also another method to give in links using st.write >>
         # st.write(f"[Source Code]({row['url]})")
         # the first square brackets is the name of the link, and the second curly brackets are for the link.

@@ -6,7 +6,7 @@ messages = ['Coffee on me?',"Lunch on me?", "We've never met, but...",'Reaching 
             'Long time fan, first time emailer!','Hello from a fellow blogger','Wanna grab Pizza?']
 random_messages = rd.choice(messages)
 
-st.write(" <center><header><h1> Contact Me </h1></header></center> ", unsafe_allow_html=True)
+st.write(" <center><header><h1> Get Connected </h1></header></center> ", unsafe_allow_html=True)
 
 with st.form(key='contact_form'):
     user_email = st.text_input(label="Your E-Mail Address",placeholder="abcde@example.com")
